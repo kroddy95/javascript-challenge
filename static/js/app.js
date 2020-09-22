@@ -17,13 +17,31 @@ function getTableData(filteredData) {
     //Get the date entered and filter on that date
     var inputDate = d3.select("#datetime").property("value");
     if (inputDate != ""){
-        var filteredData = data.filter(sighting => sighting.datetime === inputDate);
+        var filteredData = filteredData.filter(sighting => sighting.datetime === inputDate);
     }
     
     //Get the city entered and filter on that city
     var inputCity = d3.select("#city").property("value").toLowerCase();
     if (inputCity != ""){
         var filteredData = filteredData.filter(sighting => sighting.city === inputCity);
+    }
+
+     //Get the state entered and filter on that state
+     var inputState = d3.select("#state").property("value").toLowerCase();
+     if (inputState != ""){
+         var filteredData = filteredData.filter(sighting => sighting.state === inputState);
+     }
+
+    //Get the country entered and filter on that county
+    var inputCountry = d3.select("#country").property("value").toLowerCase();
+    if (inputCountry != ""){
+        var filteredData = filteredData.filter(sighting => sighting.country === inputCountry);
+    }
+
+    //Get the shape entered and filter on that shape
+    var inputShape = d3.select("#shape").property("value");
+    if (inputShape != "Shape..."){
+        var filteredData = filteredData.filter(sighting => sighting.shape === inputShape);
     }
 
     //Now take the rows left in the filteredData and add to the table on page
