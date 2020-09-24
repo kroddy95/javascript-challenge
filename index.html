@@ -46,11 +46,15 @@
                         <input class="form-control" id="state" type="text" placeholder="MO">
                         <br>
                         <label for="country">Enter Country</label>
-                        <input class="form-control" id="country" type="text" placeholder="US">
+                        <select class="custom-select" id="country">
+                          <option selected>All</option>
+                          <option value="ca">CA</option>
+                          <option value="us">US</option>
+                        </select>
                         <br>
                         <label for="shape">Enter Shape</label>
                         <select class="custom-select" id="shape">
-                          <option selected>Shape...</option>
+                          <option selected>All</option>
                           <option value="changing">Changing</option>
                           <option value="chevron">Chevron</option>
                           <option value="cigar">Cigar</option>

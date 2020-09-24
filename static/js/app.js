@@ -33,14 +33,15 @@ function getTableData(filteredData) {
      }
 
     //Get the country entered and filter on that county
-    var inputCountry = d3.select("#country").property("value").toLowerCase();
-    if (inputCountry != ""){
+    var inputCountry = d3.select("#country").property("value");
+
+    if (inputCountry != "All"){
         var filteredData = filteredData.filter(sighting => sighting.country === inputCountry);
     }
 
     //Get the shape entered and filter on that shape
     var inputShape = d3.select("#shape").property("value");
-    if (inputShape != "Shape..."){
+    if (inputShape != "All"){
         var filteredData = filteredData.filter(sighting => sighting.shape === inputShape);
     }
 
