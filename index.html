@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/superhero/bootstrap.min.css">
   <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
   <link rel="stylesheet" href="static/css/style.css">
+  <script src="https://d3js.org/d3.v6.min.js"></script>
 </head>
 
 <body>
@@ -32,7 +33,7 @@
             <div class="panel panel-default">
               <div class="panel-heading">Filter Search</div>
               <div class="panel-body">
-                <form>
+                <form id="form">
                   <div class="form-group">
                     <ul class="list-group" id="filters">
                       <li class="filter list-group-item">
@@ -48,31 +49,11 @@
                         <label for="country">Enter Country</label>
                         <select class="custom-select" id="country">
                           <option selected>All</option>
-                          <option value="ca">CA</option>
-                          <option value="us">US</option>
                         </select>
                         <br>
                         <label for="shape">Enter Shape</label>
                         <select class="custom-select" id="shape">
                           <option selected>All</option>
-                          <option value="changing">Changing</option>
-                          <option value="chevron">Chevron</option>
-                          <option value="cigar">Cigar</option>
-                          <option value="circle">Circle</option>
-                          <option value="cross">Cross</option>
-                          <option value="cylinder">Cylinder</option>
-                          <option value="disk">Disk</option>
-                          <option value="fireball">Fireball</option>
-                          <option value="flash">Flash</option>
-                          <option value="formation">Formation</option>
-                          <option value="light">Light</option>
-                          <option value="other">Other</option>
-                          <option value="oval">Oval</option>
-                          <option value="rectangle">Rectangle</option>
-                          <option value="sphere">Sphere</option>
-                          <option value="teardrop">Teardrop</option>
-                          <option value="triangle">Triangle</option>
-                          <option value="unknown">Unknown</option>
                         </select>
                       </li>
                     </ul>
@@ -107,7 +88,6 @@
       <span class="bottom">UFO Sightings</span>
     </footer>
   </div>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.11.0/d3.js"></script>
   <script src="static/js/data.js"></script>
   <script src="static/js/app.js"></script>
 </body>

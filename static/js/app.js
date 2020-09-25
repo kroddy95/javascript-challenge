@@ -1,12 +1,47 @@
-//Get the table boday and the botton
+//Get the Filter Table botton and set event handler to get the data when clicked
 var filterButton = d3.select("#filter-btn");
+filterButton.on("click", getTableData);
+
+//Map the countries from the data into array and then find the uniqe ones
+var country = data.map(sighting => sighting.country);
+var uniqueCountry = country.filter((x, i, a) => a.indexOf(x) == i);
+
+//Sort in alphabetical order
+uniqueCountry.sort();
+
+//Call the addtoDropDown function to add the countries to the dropdown
+addtoDropDown("#country", uniqueCountry);
+
+//Map the shapes from the data into an array and then find the unique ones
+var shape = data.map(sighting => sighting.shape);
+var uniqueShape = shape.filter((x, i, a) => a.indexOf(x) == i);
+
+//Sort in alphabetical order
+uniqueShape.sort();
+
+//Call the function to add the shapes to the dropdown
+addtoDropDown("#shape", uniqueShape);
 
 //Load the data when the page is refreshed or opened the first time
-getTableData(data);
+getTableData();
+
+//Add the list sent in to the id field sent in
+function addtoDropDown(id, list) {
+    //Get the dropdown
+    var dropdown = d3.select(id).node();
+
+    //Loop through the list sent in and add to the dropdown
+    for (i=0; i<list.length; i++) {
+        var option = d3.create("option").node();
+        option.text = list[i];
+        option.value = list[i]
+        dropdown.add(option, i+1);   
+    }
+}
 
 //Display all the sightings data or only show rows that match the search data
-function getTableData(filteredData) {
-
+function getTableData() {
+ 
     //Get a copy of the data 
     filteredData = data;
 
@@ -55,8 +90,3 @@ function getTableData(filteredData) {
     });
 
 }
-
-//When the Filter Table button is clicked, get the data
-filterButton.on("click", function() {
-    getTableData(data);
- });
